@@ -37,8 +37,6 @@ def temperature_converter(value, from_unit, to_unit):
     
     return from_celsius[to_unit](value_in_celsius)
 
-
-
 @app.route('/')
 def home():
     return render_template('index.html')  
