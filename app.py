@@ -45,7 +45,7 @@ def weigth_converter(value, from_unit, to_unit):
         'Ounce': 28349.5,
         'Pound': 453592.37
     }
-    weight_value = value * conversion_value[from_unit]
+    weight_value = value * conversion_values[from_unit]
     converted_value = weight_value / conversion_values[to_unit]
     return converted_value
 
