@@ -37,6 +37,18 @@ def temperature_converter(value, from_unit, to_unit):
     
     return from_celsius[to_unit](value_in_celsius)
 
+def weigth_converter(value, from_unit, to_unit):
+    conversion_values = {
+        'Milligram': 1,
+        'Gram': 1000,
+        'Kilogram': 1e6,
+        'Ounce': 28349.5,
+        'Pound': 453592.37
+    }
+    weight_value = value * conversion_value[from_unit]
+    converted_value = weight_value / conversion_values[to_unit]
+    return converted_value
+
 @app.route('/')
 def home():
     return render_template('index.html')  
