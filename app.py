@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -37,7 +37,7 @@ def temperature_converter(value, from_unit, to_unit):
     
     return from_celsius[to_unit](value_in_celsius)
 
-def weigth_converter(value, from_unit, to_unit):
+def weight_converter(value, from_unit, to_unit):
     conversion_values = {
         'Milligram': 1,
         'Gram': 1000,
@@ -50,8 +50,39 @@ def weigth_converter(value, from_unit, to_unit):
     return converted_value
 
 @app.route('/')
-def home():
-    return render_template('index.html')  
+def pagina_principal():
+    return render_template('index.html')
+
+@app.route('/weight', methods=['GET', 'POST'])
+def convert_weight():
+    result = None
+    if request.method == 'POST':
+        value = float(request.form['value'])
+        from_unit = request.form['from_unit']
+        to_unit = request.form['to_unit']
+        result = weight_converter(value, from_unit, to_unit)
+    return render_template('weight.html', result=result)
+
+@app.route('/temperature', methods=['GET', 'POST'])
+def convert_temperature():
+    result = None
+    if request.method == 'POST':
+        value = float(request.form['value'])
+        from_unit = request.form['from_unit']
+        to_unit = request.form['to_unit']
+        result = weight_converter(value, from_unit, to_unit)
+    return render_template('temperature.html', result=result)
+
+@app.route('/length', methods=['GET', 'POST'])
+def convert_length():
+    result = None
+    if request.method == 'POST':
+        value = float(request.form['value'])
+        from_unit = request.form['from_unit']
+        to_unit = request.form['to_unit']
+        result = weight_converter(value, from_unit, to_unit)
+    return render_template('length.html', result=result)
+
 
 if __name__ == '__main__':
     app.run(debug=True) 
