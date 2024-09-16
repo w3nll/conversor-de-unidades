@@ -55,33 +55,42 @@ def pagina_principal():
 
 @app.route('/weight', methods=['GET', 'POST'])
 def convert_weight():
-    result = None
-    if request.method == 'POST':
-        value = float(request.form['value'])
+    try:
+        valor = float(request.form['value'])
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
-        result = weight_converter(value, from_unit, to_unit)
-    return render_template('weight.html', result=result)
+        
+        result = weight_converter(valor, from_unit, to_unit)
+        
+        return render_template('weight.html', result=result)
+    except (ValueError, KeyError):
+        return render_template('weight.html', result="Erro ao converter.")
 
 @app.route('/temperature', methods=['GET', 'POST'])
 def convert_temperature():
-    result = None
-    if request.method == 'POST':
-        value = float(request.form['value'])
+    try:
+        valor = float(request.form['value'])
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
-        result = weight_converter(value, from_unit, to_unit)
-    return render_template('temperature.html', result=result)
+        
+        result = temperature_converter(valor, from_unit, to_unit)
+        
+        return render_template('temperature.html', result=result)
+    except (ValueError, KeyError):
+        return render_template('temperature.html', result="Erro ao converter.")
 
 @app.route('/length', methods=['GET', 'POST'])
 def convert_length():
-    result = None
-    if request.method == 'POST':
+    try:
         value = float(request.form['value'])
         from_unit = request.form['from_unit']
         to_unit = request.form['to_unit']
-        result = weight_converter(value, from_unit, to_unit)
-    return render_template('length.html', result=result)
+        
+        result = length_converter(value, from_unit, to_unit)
+        
+        return render_template('length.html', result=result)
+    except (ValueError, KeyError):
+        return render_template('length.html', result="Erro ao converter.")
 
 
 if __name__ == '__main__':

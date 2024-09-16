@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template com Botões</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,18 +38,55 @@
             text-align: center;
             color: #ffffff;
         }
-        .input-container {
+
+        h3 {
+            text-align: center;
+            color: #ffffff
+        }
+
+        .input-container-text {
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .input-container input {
+        .input-container-text input {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
             border: none;
             font-size: 16px;
             margin-bottom: 10px;
+        }
+
+        .input-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            background-color: #53BAFA;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-align-last: center;
+        }
+
+        .input-container select:hover {
+            background-color: #3285df;
+        }
+
+        .input-container select option {
+            background-color: #ffffff;
+            color: #000000;
         }
 
         .button-container {
@@ -83,21 +120,27 @@
             background-color: #218838;
         }
 
-        .btn-secondary {
-            background-color: #6c757d;
-        }
-
-        .btn-secondary:hover {
-            background-color: #5a6268;
-        }
-
         .btn-danger {
             background-color: #dc3545;
         }
 
         .btn-danger:hover {
-            background-color: #c82333;
+            background-color: #921420;
         }
+
+        .btn-converter {
+            background-color: #00E0C9
+        }
+
+        .btn-converter:hover {
+            background-color: #0a8f82;
+        }
+
+        .no-hover:hover {
+        background-color: #5a6268;
+        cursor: default;
+        }
+
     </style>
 </head>
 
@@ -106,21 +149,41 @@
         <h1>Conversor de Unidades</h1>
         <h2>Escolha a unidade que deseja converter.</h2>
         <div class="button-container">
-            <button class="btn">Temperatura</button>
-            <button onclick="window.location.href='/weight'"class="btn btn-primary">Peso</button>
+            <button class="btn no-hover">Temperatura</button>
+            <button onclick="window.location.href='/weight'" class="btn btn-primary">Peso</button>
             <button onclick="window.location.href='/length'" class="btn btn-danger">Comprimento</button>
-                </div>  
-                <div class="input-container">
-                    <input type="text" placeholder="Digite o valor" />
-                </div>    
-                <div class="input-container">
-                    <input type="text" placeholder="Digite o valor" />
-                </div>  
-                <div class="input-container">
-                    <input type="text" placeholder="Digite o valor" />
-                </div>
-            </div>
         </div>
+        <form action="/temperature" method="POST">
+            <div class="input-container-text">
+                <input type="text" name="value" placeholder="Digite o valor" required />
+            </div>
+            <div class="input-container">
+                <select name="from_unit" required>
+                    <option value="">Escolha a unidade</option>
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <select name="to_unit" required>
+                    <option value="">Escolha a unidade</option>
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn btn-converter">Converter</button>
+            </div>
+        </form>
+        {% if result is not none %}
+        <div class="result">
+            <h3>Resultado: {{ result }}</h3>
+        </div>
+        {% endif %}
+    </div>
+    </div>
     </div>
 </body>
 
