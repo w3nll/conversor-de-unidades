@@ -57,45 +57,45 @@ def pagina_principal():
 def convert_weight():
     result = None
     error_message = ""
-
-    try:
-        valor = float(request.form['value'])
-        from_unit = request.form['from_unit']
-        to_unit = request.form['to_unit']
-        
-        result = weight_converter(valor, from_unit, to_unit)        
-    except (ValueError, KeyError):
-        error_message = "Erro ao converter. Por favor, verifique os dados inseridos."
+    if (request.method == 'POST'):
+        try:
+            valor = float(request.form['value'])
+            from_unit = request.form['from_unit']
+            to_unit = request.form['to_unit']
+            
+            result = weight_converter(valor, from_unit, to_unit)        
+        except (ValueError, KeyError):
+            error_message = "Erro ao converter. Por favor, verifique os dados inseridos."
     return render_template('weight.html', result=result, error_message=error_message)
 
 @app.route('/temperature', methods=['GET', 'POST'])
 def convert_temperature():
     result = None
     error_message = ""
-
-    try:
-        valor = float(request.form['value'])
-        from_unit = request.form['from_unit']
-        to_unit = request.form['to_unit']
-        
-        result = temperature_converter(valor, from_unit, to_unit)
-    except (ValueError, KeyError):
-        error_message = "Erro ao converter. Por favor, verifique os dados inseridos."
+    if (request.method == 'POST'):
+        try:
+            valor = float(request.form['value'])
+            from_unit = request.form['from_unit']
+            to_unit = request.form['to_unit']
+            
+            result = temperature_converter(valor, from_unit, to_unit)
+        except (ValueError, KeyError):
+            error_message = "Erro ao converter. Por favor, verifique os dados inseridos."
     return render_template('temperature.html', result=result, error_message=error_message)
 
 @app.route('/length', methods=['GET', 'POST'])
 def convert_length():
     result = None
     error_message = ""
-
-    try:
-        value = float(request.form['value'])
-        from_unit = request.form['from_unit']
-        to_unit = request.form['to_unit']
-        
-        result = length_converter(value, from_unit, to_unit)
-    except (ValueError, KeyError):
-        error_message = "Erro ao converter. Por favor, verifique os dados inseridos."
+    if (request.method == 'POST'):
+        try:
+            value = float(request.form['value'])
+            from_unit = request.form['from_unit']
+            to_unit = request.form['to_unit']
+            
+            result = length_converter(value, from_unit, to_unit)
+        except (ValueError, KeyError):
+            error_message = "Erro ao converter. Por favor, verifique os dados inseridos."
     return render_template('length.html', result=result, error_message=error_message)
 
 if __name__ == '__main__':
