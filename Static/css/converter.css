@@ -1,0 +1,105 @@
+h3 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.input-container-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-container-text input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.input-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    background-color: #53BAFA;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align-last: center;
+}
+
+.input-container select:hover {
+    background-color: #3285df;
+}
+
+.input-container select option {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 120px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary {
+    background-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #921420;
+}
+
+.btn-converter {
+    background-color: #00E0C9
+}
+
+.btn-converter:hover {
+    background-color: #0a8f82;
+}
+
+.no-hover {
+background-color: #5a6268;
+cursor: default;
+}
+.no-hover:hover {
+background-color: #5a6268;
+cursor: default;
+ }
