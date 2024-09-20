@@ -1,6 +1,6 @@
-[🇬🇧 English Version](#english-version)  |  [🇧🇷 Versão em Português](#versão-em-português)
+[🇬🇧 English Version](#english-version) | [🇧🇷 Versão em Português](#versão-em-português)
 
-## English Version
+## 🇬🇧 English Version
 
 # Unit Converter
 
@@ -47,7 +47,7 @@ python app.py
 
 [🇬🇧 English Version](#english-version) | [🇧🇷 Versão em Português](#versão-em-português)
 
-## Versão em Português
+## 🇧🇷 Versão em Português
 
 # Conversor de Unidades
 
